@@ -3,53 +3,53 @@
 <head>
 <style>
 body {
-  background-color: #f0f0f0; /* light gray background */
+  background-color: #f0f0f0;
   display: flex;
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically */
-  min-height: 100vh;         /* full viewport height */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  padding: 20px;             /* spacing for small screens */
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .container {
   position: relative;
   width: 100%;
-  max-width: 700px;          /* card won’t exceed 700px wide */
-  border: 3px solid #333;    /* optional border */
+  max-width: 700px;
+  border: 3px solid #333;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  overflow: hidden;          /* ensures video stays inside box */
+  overflow: hidden;
   background-color: white;
 }
 
 .vid {
   width: 100%;
-  height: auto;              /* maintain aspect ratio */
+  height: auto;
   display: block;
+  pointer-events: none; /* makes clicks pass through video to link */
 }
 
-/* Hotspot link positioned relative to container */
 .hotspot {
   position: absolute;
-  top: 88%;                  /* vertical position relative to container */
-  left: 50%;                 /* center horizontally */
+  top: 88%;
+  left: 50%;
   color: blue;
   text-decoration: underline;
   font-weight: bold;
-  font-size: 1.5vw;          /* font scales with screen width */
-  z-index: 2;
-  transform: translateX(-50%); /* keeps link centered at left:50% */
+  font-size: 1.5vw;
+  z-index: 10; /* higher than video */
+  transform: translateX(-50%);
 }
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
   .hotspot {
-    font-size: 4vw;          /* scale font on small screens */
-    top: 85%;                /* tweak vertical for small screens */
-    left: 50%;               /* keep centered */
+    font-size: 4vw;
+    top: 85%;
+    left: 50%;
   }
 }
 </style>
@@ -58,7 +58,7 @@ body {
 <body>
 
 <div class="container">
-  <video src="invitation_video.mp4" autoplay loop muted playsinline controls class="vid"></video>
+  <video src="invitation_video.mp4" autoplay loop muted playsinline class="vid"></video>
 
   <a class="hotspot"
      href="https://docs.google.com/forms/d/e/1FAIpQLSfVH5jajjhtqIPfeGndzcJitPerXFojiwZ1y6xzdGOdGFzI6g/viewform"
