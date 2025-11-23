@@ -66,6 +66,17 @@ body {
     Google Form
   </a>
 </div>
+<script>
+const video = document.querySelector('.vid');
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    video.play().catch(() => {
+      // Autoplay might still be blocked; user can tap to start
+    });
+  }
+});
+</script>
 
 </body>
 </html>
